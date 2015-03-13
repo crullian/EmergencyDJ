@@ -4,8 +4,12 @@
     margin-top: 40px;
     text-align: center;
   }
-}
 
+  
+}
+body {
+    background-color: #000;
+  }
 
 
 @mixin clearfix {
