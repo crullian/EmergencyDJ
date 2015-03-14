@@ -26,8 +26,8 @@ function search() {
     var title = response.items[0].snippet.title;
     vidId = response.items[0].id.videoId;
     console.log("Title: ", title, "Video ID: ", vidId);
-    $('#search-container').html('<h3>' + title + '</h3>');
-    player.cueVideoById(vidId, 0, "default");
+    $('#search-container').html('<h4>' + title + '</h4>');
+    player.loadVideoById(vidId, 0, "default");
   });
 }
 

@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('SearchCtrl', function($scope, AudioFactory) {
-  $scope.search = AudioFactory.search();
+  // $scope.search = AudioFactory.search();
 });
 
 app.directive('deck', function(AudioFactory) {
