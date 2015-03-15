@@ -5,13 +5,10 @@ app.factory('AudioFactory', function() {
   };
 });
 var title;
-var title2;
 var vidId;
-var vidId2;
 var player;
-var player2;
 
-var onYouTubeApiLoad = function() {
+function onYouTubeApiLoad() {
   gapi.client.setApiKey('AIzaSyAz3W_FsqnyZUL9ImA8BrBeInXpnCk7Kv8');
 };
 
@@ -19,37 +16,7 @@ function onClientLoad() {
   gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
 };
 
-function search() {
-  var q = $('#query').val();
-  var request = gapi.client.youtube.search.list({
-    q: q,
-    part: 'snippet'
-  });
-  request.execute(function(response) {
-    title = response.items[0].snippet.title;
-    vidId = response.items[0].id.videoId;
-    console.log("Title: ", title, "Video ID: ", vidId);
-    $('#search-container').html('<h4>' + title + '</h4>');
-    player.cueVideoById(vidId, 0, "default");
-  });
-  $("#query").val("");
-}
 
-function search2() {
-  var q = $('#query2').val();
-  var request = gapi.client.youtube.search.list({
-    q: q,
-    part: 'snippet'
-  });
-  request.execute(function(response) {
-    title2 = response.items[0].snippet.title;
-    vidId2 = response.items[0].id.videoId;
-    console.log("Title: ", title2, "Video ID: ", vidId2);
-    $('#search-container2').html('<h4>' + title2 + '</h4>');
-    player2.cueVideoById(vidId2, 0, "default");
-  });
-  $("#query2").val("");
-}
 
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
@@ -72,36 +39,7 @@ function onYouTubeIframeAPIReady() {
       // 'onStateChange': onPlayerStateChange
     }
   });
-  player2 = new YT.Player('youtubeplayer2', {
-    height: '100',
-    width: '175',
-    videoId: "t1tjQqWqqAA",
-    setVolume: 100,
-    events: {
-      // 'onReady': onPlayerReady
-      // 'onStateChange': onPlayerStateChange
-    }
-  });
 }
-
-
-
-// 4. The API will call this function when the video player is ready.
-// function onPlayerReady(event) {
-//   event.target.stopVideo();
-// }
-
-// 5. The API calls this function when the player's state changes.
-//    The function indicates that when playing a video (state=1),
-//    the player should play for six seconds and then stop.
-// var done = false;
-
-// function onPlayerStateChange(event) {
-//   if (event.data == YT.PlayerState.PLAYING && !done) {
-//     setTimeout(stopVideo, 6000);
-//     done = true;
-//   }
-// }
 
 function play() {
   player.playVideo();
@@ -111,44 +49,19 @@ function stop() {
   player.stopVideo();
 }
 
-function play2() {
-  player2.playVideo();
-}
-
-function stop2() {
-  player2.stopVideo();
-}
-
-// player.on('play', function() {
-//   player.play();
-// });
-
-// player.on('pause', function() {
-//   player.pause();
-// });
-
 // var clicked = false;
 
-// $("#pButton").click(function() {
+// function playPause() {
+
 //   if (clicked) {
 //     player.stopVideo();
+//     $("#pButton").toggleClass("play");
 //     clicked = false;
 //   } else {
-//     player.play();
+//     player.playVideo();
+//     $("#pButton").toggleClass("pause");
 //     clicked = true;
 //   }
-// });
-
-// function crossFade(element) {
-//   $("#range").change(function() {
-//     var x = parseInt($(this).val()) / 100;
-//     // Use an equal-power crossfading curve:
-//     var gain1 = Math.cos(x * 0.5 * Math.PI);
-//     var gain2 = Math.cos((1.0 - x) * 0.5 * Math.PI);
-//     player.setVolume(gain1);
-//     player2.setVolume(gain2);
-
-//   });
 // }
 
 var crossFade = function(element) {

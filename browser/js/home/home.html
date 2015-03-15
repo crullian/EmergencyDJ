@@ -1,8 +1,19 @@
 <section id="home">
-  <div ng-controller="SearchCtrl">
-    <deck></deck>
-    <deck2></deck2>
+  
+  <div ng-controller="AudioController">
+    <div id="buttons">
+      <label> 
+        <input ng-model="q" type="text"/>
+        <button  ng-click="search()">Search</button>
+      </label>
+    </div>
+    <deck vid="vid" title="title"></deck>
   </div>
+  
+  <!-- <div ng-controller="AudioController">
+    <deck title="{title}" vidId="{vidId}"></deck>
+  </div> -->
+
   <fader></fader>
 
 </section>
