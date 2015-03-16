@@ -1,49 +1,73 @@
 navbar {
 
   display: block;
-  background: #9b929b;
-
+  background: #fff;
+  border-top: solid 2px;
+  border-bottom: solid 7px;
   fullstack-logo {
     padding-top: 10px;
     margin-right: 20px;
     width: 30px;
   }
 
-  // a {
-  //   color: white;
-  //   &:hover {
-  //     color: white;
-  //   }
-  // }
+  .cross img {
+    width: 50px;
+    // position: relative;
+    // left: 350px;
+    // top: 20px;
+    float: right;
+    margin-bottom: -20px;
+  }
 
-  // .nav > li > a {
-  //   cursor: pointer;
-  //   &.active {
-  //     color: #f30046;
-  //   }
-  //   &:hover {
-  //     transition: color 0.2s;
-  //   }
-  //   &:focus {
-  //     color: #turquoise;
-  //     background: transparent;
-  //   }
-  // }
+  a {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+
+  .nav > li > a {
+    cursor: pointer;
+    &.active {
+      color: #f30046;
+    }
+    &:hover {
+      transition: color 0.2s;
+    }
+    &:focus {
+      color: turquoise;
+      background: transparent;
+    }
+  }
 
   .login-button {
     float: right;
     margin-top: 8px;
   }
 
+
   .welcome {
+    font-size: 18px;
     float: right;
     margin-top: 12px;
     span {
-      color: white;
+      color: black;
+      margin-right: 8px;
     }
     a {
       color: #f30046;
       cursor: pointer;
+      margin-right: 5px;
+    }
+  }
+  .emergency {
+    background: #fff;
+    height: 10px;
+    h1 {
+      font-family: "tall dark and handsome";
+      font-weight: bold;
+      font-size: 100px;
+      margin-top: -20px;
     }
   }
 
