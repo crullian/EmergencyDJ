@@ -111,14 +111,13 @@ function onYouTubeIframeAPIReady() {
 //   player.stopVideo();
 // }
 
-function play2() {
-  player2.playVideo();
-}
+// function play2() {
+//   player2.playVideo();
+// }
 
-function stop2() {
-  player2.stopVideo();
-}
-
+// function stop2() {
+//   player2.stopVideo();
+// }
 // player.on('play', function() {
 //   player.play();
 // });
@@ -126,32 +125,33 @@ function stop2() {
 // player.on('pause', function() {
 //   player.pause();
 // });
-// $('#pButton').removeClass('play').addClass('pause');
 var clicked = false;
 
 function playPause() {
-  if (clicked) {
-    player.playVideo();
-    clicked = false;
-    $('#pButton').removeClass('play').addClass('pause');
-  } else {
+  if (clicked === true) {
     player.stopVideo();
+    $("#pButton").removeClass("pause").addClass("play");
+    clicked = false;
+  } else {
+    player.playVideo();
+    $("#pButton").removeClass("play").addClass("pause");
     clicked = true;
-    $('#pButton').removeClass('pause').addClass('play');
   }
-};
+}
 
-// function crossFade(element) {
-//   $("#range").change(function() {
-//     var x = parseInt($(this).val()) / 100;
-//     // Use an equal-power crossfading curve:
-//     var gain1 = Math.cos(x * 0.5 * Math.PI);
-//     var gain2 = Math.cos((1.0 - x) * 0.5 * Math.PI);
-//     player.setVolume(gain1);
-//     player2.setVolume(gain2);
+var clicked2 = false;
 
-//   });
-// }
+function playPause2() {
+  if (clicked2 === true) {
+    player2.stopVideo();
+    $("#pButton2").removeClass("pause").addClass("play");
+    clicked2 = false;
+  } else {
+    player2.playVideo();
+    $("#pButton2").removeClass("play").addClass("pause");
+    clicked2 = true;
+  }
+}
 
 var crossFade = function(element) {
   var gain1, gain2, x;
