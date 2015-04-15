@@ -3,14 +3,22 @@
         <div class="navbar-header">
             <fullstack-logo></fullstack-logo>
         </div>
-        <ul class="nav navbar-nav">
+        <!-- <ul class="nav navbar-nav">
             <li ng-repeat="item in items" ng-show="!item.auth || isLoggedIn()">
                 <a ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}</a>
             </li>
-        </ul>
+        </ul> -->
+
+        <div class="emergency">
+            <h1>Emergency DJ</h1>
+        </div>
+        <div class="cross">
+            <!-- <img src="/img/flag_of_the_red_cross.png" /> -->
+            <img src="/img/broken-record.png"/>
+        </div>
         <button ng-show="!user" ui-sref="login" class="btn login-button">Login</button>
         <div ng-show="user" class="welcome">
-            <span>Welcome, {{ user.email }}!</span>
+            <span>{{ user.email }}</span>
             <a ng-click="logout()">Logout</a>
         </div>
     </div>

@@ -1,4 +1,4 @@
-<div class="deck" class="pleasefloatright">
+<div class="deck">
   <div id="buttons">
     <label> 
       <input id="query" type="text"/>
@@ -7,8 +7,8 @@
   </div>
   
   <div id="audioplayer">
-    <button id="pButton" class="pause" onclick="stop()"></button>
-    <button id="pButton" class="play" onclick="play()"></button>
+    <!-- <button id="pButton" class="pause" onclick="stop()"></button> -->
+    <button id="pButton" class="play" onclick="playPause()"></button>
  
     <div id="timeline">    
           <div id="playhead"></div>
@@ -17,5 +17,10 @@
   
   <div id="youtubeplayer"></div>
   <div id="search-container"></div>
+
+  <!-- <div class="progressTime">
+     Current play time: <span class="current"></span>
+     Video duration: <span class="duration"></span>
+  </div> -->
 </div>
 
