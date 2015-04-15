@@ -32,6 +32,8 @@ function search() {
     $('#search-container').html('<h4>' + title + '</h4>');
     player.cueVideoById(vidId, 0, "default");
   });
+  var playLength = player.getDuration();
+  console.log("Play length is: ", playLength);
   $("#query").val("");
 }
 
@@ -128,6 +130,8 @@ function onYouTubeIframeAPIReady() {
 var clicked = false;
 
 function playPause() {
+  player.getDuration();
+  console.log("Play length is: ", player.getDuration());
   if (clicked === true) {
     player.stopVideo();
     $("#pButton").removeClass("pause").addClass("play");
