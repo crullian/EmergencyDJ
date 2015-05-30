@@ -28,13 +28,13 @@ function search() {
   request.execute(function(response) {
     title = response.items[0].snippet.title;
     vidId = response.items[0].id.videoId;
-    console.log("Title: ", title, "Video ID: ", vidId);
+    console.log('Title: ', title, 'Video ID: ', vidId);
     $('#search-container').html('<h4>' + title + '</h4>');
-    player.cueVideoById(vidId, 0, "default");
+    player.cueVideoById(vidId, 0, 'default');
   });
   var playLength = player.getDuration();
-  console.log("Play length is: ", playLength);
-  $("#query").val("");
+  console.log('Play length is: ', playLength);
+  $('#query').val('');
 }
 
 function search2() {
@@ -46,17 +46,17 @@ function search2() {
   request.execute(function(response) {
     title2 = response.items[0].snippet.title;
     vidId2 = response.items[0].id.videoId;
-    console.log("Title: ", title2, "Video ID: ", vidId2);
+    console.log('Title: ', title2, 'Video ID: ', vidId2);
     $('#search-container2').html('<h4>' + title2 + '</h4>');
-    player2.cueVideoById(vidId2, 0, "default");
+    player2.cueVideoById(vidId2, 0, 'default');
   });
-  $("#query2").val("");
+  $('#query2').val('');
 }
 
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
 
-tag.src = "http://www.youtube.com/iframe_api";
+tag.src = 'http://www.youtube.com/iframe_api';
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
@@ -65,9 +65,9 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('youtubeplayer', {
-    height: '100',
-    width: '175',
-    videoId: "", //MJVX4svJ8lw
+    height: '200',
+    width: '390',
+    videoId: '', //MJVX4svJ8lw
     setVolume: 100,
     events: {
       // 'onReady': onPlayerReady
@@ -75,9 +75,9 @@ function onYouTubeIframeAPIReady() {
     }
   });
   player2 = new YT.Player('youtubeplayer2', {
-    height: '100',
-    width: '175',
-    videoId: "", //t1tjQqWqqAA
+    height: '200',
+    width: '390',
+    videoId: '', //t1tjQqWqqAA
     setVolume: 100,
     events: {
       // 'onReady': onPlayerReady
@@ -127,18 +127,19 @@ function onYouTubeIframeAPIReady() {
 // player.on('pause', function() {
 //   player.pause();
 // });
+
 var clicked = false;
 
 function playPause() {
   player.getDuration();
-  console.log("Play length is: ", player.getDuration());
+  console.log('Play length is: ', player.getDuration());
   if (clicked === true) {
     player.stopVideo();
-    $("#pButton").removeClass("pause").addClass("play");
+    $('#pButton').removeClass('pause').addClass('play');
     clicked = false;
   } else {
     player.playVideo();
-    $("#pButton").removeClass("play").addClass("pause");
+    $('#pButton').removeClass('play').addClass('pause');
     clicked = true;
   }
 }
@@ -148,11 +149,11 @@ var clicked2 = false;
 function playPause2() {
   if (clicked2 === true) {
     player2.stopVideo();
-    $("#pButton2").removeClass("pause").addClass("play");
+    $('#pButton2').removeClass('pause').addClass('play');
     clicked2 = false;
   } else {
     player2.playVideo();
-    $("#pButton2").removeClass("play").addClass("pause");
+    $('#pButton2').removeClass('play').addClass('pause');
     clicked2 = true;
   }
 }

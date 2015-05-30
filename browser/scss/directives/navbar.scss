@@ -1,16 +1,19 @@
 navbar {
-
   display: block;
   background: #fff;
-  border-top: solid 2px;
+  border-top: solid 10px;
   border-bottom: solid 7px;
   fullstack-logo {
+    z-index: -2;
+    position: relative;
+    top: 7px;
     padding-top: 10px;
     margin-right: 20px;
     width: 30px;
   }
 
   .cross img {
+    margin-top: 9px;
     width: 50px;
     // position: relative;
     // left: 350px;
@@ -41,8 +44,9 @@ navbar {
   }
 
   .login-button {
+
     float: right;
-    margin-top: 8px;
+    margin-top: 14px;
   }
 
 
