@@ -1,7 +1,7 @@
 'use strict';
 app.factory('AudioFactory', function() {
   return {
-    // search: search
+
   };
 });
 var title;
@@ -37,21 +37,21 @@ function search() {
   $('#query').val('');
 }
 
-function search2() {
-  var q = $('#query2').val();
-  var request = gapi.client.youtube.search.list({
-    q: q,
-    part: 'snippet'
-  });
-  request.execute(function(response) {
-    title2 = response.items[0].snippet.title;
-    vidId2 = response.items[0].id.videoId;
-    console.log('Title: ', title2, 'Video ID: ', vidId2);
-    $('#search-container2').html('<h4>' + title2 + '</h4>');
-    player2.cueVideoById(vidId2, 0, 'default');
-  });
-  $('#query2').val('');
-}
+// function search2() {
+//   var q = $('#query2').val();
+//   var request = gapi.client.youtube.search.list({
+//     q: q,
+//     part: 'snippet'
+//   });
+//   request.execute(function(response) {
+//     title2 = response.items[0].snippet.title;
+//     vidId2 = response.items[0].id.videoId;
+//     console.log('Title: ', title2, 'Video ID: ', vidId2);
+//     $('#search-container2').html('<h4>' + title2 + '</h4>');
+//     player2.cueVideoById(vidId2, 0, 'default');
+//   });
+//   $('#query2').val('');
+// }
 
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
@@ -74,16 +74,16 @@ function onYouTubeIframeAPIReady() {
       // 'onStateChange': onPlayerStateChange
     }
   });
-  player2 = new YT.Player('youtubeplayer2', {
-    height: '200',
-    width: '390',
-    videoId: 'E8OayHNF93E', //t1tjQqWqqAA
-    setVolume: 100,
-    events: {
-      // 'onReady': onPlayerReady
-      // 'onStateChange': onPlayerStateChange
-    }
-  });
+  // player2 = new YT.Player('youtubeplayer2', {
+  //   height: '200',
+  //   width: '390',
+  //   videoId: 'E8OayHNF93E', //t1tjQqWqqAA
+  //   setVolume: 100,
+  //   events: {
+  //     // 'onReady': onPlayerReady
+  //     // 'onStateChange': onPlayerStateChange
+  //   }
+  // });
 }
 
 
@@ -128,35 +128,35 @@ function onYouTubeIframeAPIReady() {
 //   player.pause();
 // });
 
-var clicked = false;
+// var clicked = false;
 
-function playPause() {
-  player.getDuration();
-  console.log('Play length is: ', player.getDuration());
-  if (clicked === true) {
-    player.stopVideo();
-    $('#pButton').removeClass('pause').addClass('play');
-    clicked = false;
-  } else {
-    player.playVideo();
-    $('#pButton').removeClass('play').addClass('pause');
-    clicked = true;
-  }
-}
+// function playPause() {
+//   player.getDuration();
+//   console.log('Play length is: ', player.getDuration());
+//   if (clicked === true) {
+//     player.stopVideo();
+//     $('#pButton').removeClass('pause').addClass('play');
+//     clicked = false;
+//   } else {
+//     player.playVideo();
+//     $('#pButton').removeClass('play').addClass('pause');
+//     clicked = true;
+//   }
+// }
 
-var clicked2 = false;
+// var clicked2 = false;
 
-function playPause2() {
-  if (clicked2 === true) {
-    player2.stopVideo();
-    $('#pButton2').removeClass('pause').addClass('play');
-    clicked2 = false;
-  } else {
-    player2.playVideo();
-    $('#pButton2').removeClass('play').addClass('pause');
-    clicked2 = true;
-  }
-}
+// function playPause2() {
+//   if (clicked2 === true) {
+//     player2.stopVideo();
+//     $('#pButton2').removeClass('pause').addClass('play');
+//     clicked2 = false;
+//   } else {
+//     player2.playVideo();
+//     $('#pButton2').removeClass('play').addClass('pause');
+//     clicked2 = true;
+//   }
+// }
 
 var crossFade = function(element) {
   var gain1, gain2, x;
