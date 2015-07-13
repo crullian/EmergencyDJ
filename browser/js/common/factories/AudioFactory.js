@@ -1,7 +1,25 @@
 'use strict';
 app.factory('AudioFactory', function() {
   return {
-
+    // search: function(track) {
+    //   var title;
+    //   var vidId;
+    //   var q = track;
+    //   var request = gapi.client.youtube.search.list({
+    //     q: q,
+    //     part: 'snippet'
+    //   });
+    //   request.execute(function(response) {
+    //     title = response.items[0].snippet.title;
+    //     vidId = response.items[0].id.videoId;
+    //     console.log('Title: ', title, 'Video ID: ', vidId);
+    //     $('#search-container').html('<h4>' + title + '</h4>');
+    //     player.cueVideoById(vidId, 0, 'default');
+    //   });
+    //   var playLength = player.getDuration();
+    //   console.log('Play length is: ', playLength);
+    //   $('#query').val('');
+    // }
   };
 });
 var title;
@@ -37,31 +55,31 @@ function search() {
   $('#query').val('');
 }
 
-// function search2() {
-//   var q = $('#query2').val();
-//   var request = gapi.client.youtube.search.list({
-//     q: q,
-//     part: 'snippet'
-//   });
-//   request.execute(function(response) {
-//     title2 = response.items[0].snippet.title;
-//     vidId2 = response.items[0].id.videoId;
-//     console.log('Title: ', title2, 'Video ID: ', vidId2);
-//     $('#search-container2').html('<h4>' + title2 + '</h4>');
-//     player2.cueVideoById(vidId2, 0, 'default');
-//   });
-//   $('#query2').val('');
-// }
+function search2() {
+  var q = $('#query2').val();
+  var request = gapi.client.youtube.search.list({
+    q: q,
+    part: 'snippet'
+  });
+  request.execute(function(response) {
+    title2 = response.items[0].snippet.title;
+    vidId2 = response.items[0].id.videoId;
+    console.log('Title: ', title2, 'Video ID: ', vidId2);
+    $('#search-container2').html('<h4>' + title2 + '</h4>');
+    player2.cueVideoById(vidId2, 0, 'default');
+  });
+  $('#query2').val('');
+}
 
-// 2. This code loads the IFrame Player API code asynchronously.
-var tag = document.createElement('script');
+// // 2. This code loads the IFrame Player API code asynchronously.
+// var tag = document.createElement('script');
 
-tag.src = 'https://www.youtube.com/iframe_api';
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+// tag.src = 'https://www.youtube.com/iframe_api';
+// var firstScriptTag = document.getElementsByTagName('script')[0];
+// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
+// // 3. This function creates an <iframe> (and YouTube player)
+// //    after the API code downloads.
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('youtubeplayer', {
@@ -74,18 +92,17 @@ function onYouTubeIframeAPIReady() {
       // 'onStateChange': onPlayerStateChange
     }
   });
-  // player2 = new YT.Player('youtubeplayer2', {
-  //   height: '200',
-  //   width: '390',
-  //   videoId: 'E8OayHNF93E', //t1tjQqWqqAA
-  //   setVolume: 100,
-  //   events: {
-  //     // 'onReady': onPlayerReady
-  //     // 'onStateChange': onPlayerStateChange
-  //   }
-  // });
+  player2 = new YT.Player('youtubeplayer2', {
+    height: '200',
+    width: '390',
+    videoId: 'E8OayHNF93E', //t1tjQqWqqAA
+    setVolume: 100,
+    events: {
+      // 'onReady': onPlayerReady
+      // 'onStateChange': onPlayerStateChange
+    }
+  });
 }
-
 
 
 // 4. The API will call this function when the video player is ready.

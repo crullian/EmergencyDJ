@@ -1,11 +1,13 @@
 <div class="deck">
   <div id="buttons">
     <label> 
-      <input id="query" type="text"/>
+      <!-- <input ng-model="value" type="text"/> -->
+      <input id='query' type="text"/>
+      <!-- <button id="search-button" ng-click="find({track:value})">Search</button> -->
       <button id="search-button" onclick="search()">Search</button>
     </label>
   </div>
-  
+  <!-- <button ng-click="dial()"></button> -->
   <!-- <div id="audioplayer"> -->
     <!-- <button id="pButton" class="pause" onclick="stop()"></button> -->
     <!-- <button id="pButton" class="play" onclick="playPause()"></button> -->
@@ -17,7 +19,7 @@
   
   <div id="youtubeplayer"></div>
 
-  <div id="search-container"></div>
+  <div id="search-container">{{title}}</div>
 
   <!-- <div class="progressTime">
      Current play time: <span class="current"></span>

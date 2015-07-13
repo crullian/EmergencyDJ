@@ -1,19 +1,15 @@
 'use strict';
 app.config(function($stateProvider) {
 
-    // Register our *about* state.
-    $stateProvider.state('about', {
-        url: '/about',
-        controller: 'AboutController',
-        templateUrl: 'js/about/about.html'
-    });
+  // Register our *about* state.
+  $stateProvider.state('about', {
+    url: '/about',
+    controller: 'AboutController',
+    templateUrl: 'js/about/about.html'
+  });
 
 });
 
 app.controller('AboutController', function($scope) {
-
-    $scope.images = [
-        'https://pbs.twimg.com/media/B7gBXulCAAAXQcE.jpg:large',
-    ];
 
 });
